@@ -1,0 +1,346 @@
+html {
+  scroll-behavior: smooth;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.container {
+  width: 100%;
+  height: 300vh;
+  box-sizing: border-box;
+}
+
+.header {
+  height: 80px;
+  width: 100%;
+  background-color: #004fff;
+  display: flex;
+  align-items: center;
+  padding: 20px 50px;
+  justify-content: space-between;
+}
+
+.logo {
+  width: 20px;
+}
+
+.nav {
+  margin-left: auto;
+}
+
+.navItems {
+  display: flex;
+  list-style: none;
+  align-items: center;
+  justify-content: center;
+}
+
+.navItem {
+  margin-right: 20px;
+}
+
+.linkNav {
+  font-family: "Poppins";
+  font-size: 1.1rem;
+  font-weight: 500;
+  text-decoration: none;
+  color: #ffffff;
+  border-bottom: 3px solid transparent;
+  transition: all 0.5s ease;
+}
+
+.linkNav:hover {
+  color: #ffd700;
+  border-bottom: 2px solid #ffd700;
+}
+
+.linkLogin {
+  height: 40px;
+  width: 150px;
+  background-color: #ffd700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 1.2rem;
+  font-family: "Poppins";
+  font-size: 17px;
+  font-weight: 500;
+  text-decoration: none;
+  color: #ffffff;
+  transition: all 0.5s ease;
+}
+
+.linkLogin:hover {
+  color: #e9d7ef;
+  background-color: #f3cf00;
+  transform: scale(1.1);
+}
+
+.main {
+  overflow-x: hidden;
+  position: relative;
+}
+
+.page {
+  width: 60%;
+  height: 85%;
+  object-fit: contain;
+}
+
+.sectionHome {
+  position: relative;
+  background-color: #004fff;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  width: 100%;
+  height: 100vh;
+}
+
+.wave {
+  position: absolute;
+  height: 50px;
+  width: 100%;
+  background-color: #004fff;
+  bottom: 0;
+}
+
+.wave::before,
+.wave::after {
+  content: "";
+  display: block;
+  position: absolute;
+  border-radius: 100% 50%;
+}
+
+.wave::before {
+  width: 55%;
+  height: 109%;
+  background-color: #fff;
+  right: -1.5%;
+  top: 60%;
+}
+
+.wave::after {
+  width: 55%;
+  height: 100%;
+  background-color: #004fff;
+  left: -1.5%;
+  top: 40%;
+}
+
+.contentText {
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.title {
+  font-family: "Baloo 2", sans-serif;
+  font-weight: 1000;
+  font-size: 2.5rem;
+}
+
+.text {
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  font-size: 1.3rem;
+}
+
+.sectionII {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 50px;
+}
+
+.contentTextII {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.titleII {
+  width: fit-content;
+  font-family: "Baloo 2", sans-serif;
+  font-weight: 1000;
+  font-size: 2.5rem;
+  color: #004fff;
+  align-items: center;
+}
+
+.textII {
+  width: 70%;
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  font-size: 1.1rem;
+  color: #324a6d;
+  text-align: center;
+  align-items: center;
+}
+
+.cards {
+  width: 100%;
+  height: 70vh;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.card {
+  background-color: #004fff;
+  width: 400px;
+  height: 350px;
+  border-radius: 10%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  box-shadow: 4px 4px rgba(0, 0, 0, 0);
+}
+
+.card:hover {
+  transform: scale(1.1);
+  box-shadow: 8px 8px 22px #f3cf00, -10px -10px 20px #ffffff;
+}
+
+.titleCard {
+  justify-content: center;
+  font-family: "Baloo 2", sans-serif;
+  font-weight: 1000;
+  font-size: 1.5rem;
+  color: #ffffff;
+  border-bottom: #f3cf00 3px solid;
+  margin-top: 30px;
+}
+
+.textCard {
+  width: 80%;
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  font-size: 1.1rem;
+  color: #ffffff;
+  margin-top: 40px;
+}
+
+.waveYellow {
+  position: absolute;
+  height: 50px;
+  width: 100%;
+  background-color: #f3cf00;
+  bottom: 0;
+}
+
+.waveYellow::before,
+.waveYellow::after {
+  content: "";
+  display: block;
+  position: absolute;
+  border-radius: 100% 50%;
+}
+
+.waveYellow::before {
+  width: 55%;
+  height: 100%;
+  background-color: #ffffff;
+  left: -1.5%;
+  top: -60%;
+}
+
+.waveYellow::after {
+  width: 55%;
+  height: 109%;
+  background-color: #f3cf00;
+  right: -1.5%;
+  top: -40%;
+}
+
+.sectionIII {
+  position: relative;
+  height: 90vh;
+  width: 100%;
+  background-color: #f3cf00;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.contentTextImg {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.contentTextIII {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.imgGameCode {
+  width: 50%;
+  height: 100%;
+  padding-top: 100px;
+}
+
+.textGameCode {
+  margin-right: 100px;
+  font-family: "Baloo 2", sans-serif;
+  font-weight: 600;
+  font-size: 1.2rem;
+  color: #ffffff;
+  padding-left: 15px;
+}
+
+.textHeader {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.titleIII {
+  width: fit-content;
+  font-family: "Baloo 2", sans-serif;
+  font-weight: 1000;
+  font-size: 2.5rem;
+  color: #ffffff;
+  align-items: center;
+}
+
+.textIII {
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+  text-align: start;
+}
+
+.button {
+  font-family: "Poppins";
+  font-size: 1rem;
+  font-weight: 600;
+  background-color: #004fff;
+  color: #ffffff;
+  height: 50px;
+  width: 300px;
+  border: none;
+  border-radius: 25px;
+  margin: 15px;
+  transition: all 0.5s ease;
+}
+
+.button:hover {
+  cursor: pointer;
+  transform: scale(1.05);
+}
