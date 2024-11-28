@@ -149,8 +149,7 @@ document.addEventListener("DOMContentLoaded", function () {
       .then((data) => {
         if (data.status === "success") {
           alert("Cadastro realizado com sucesso!");
-          window.location.href =
-            "http://localhost/Projeto-Logica/view/login.html";
+          window.location.href = "http://localhost/GameCode/view/login.html";
         } else {
           alert("Ocorreu um erro: " + data.message);
         }
