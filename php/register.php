@@ -1,53 +1,63 @@
 <?php
 header('Content-Type: application/json');
 
+$conexao = mysqli_connect("localhost", "Paulo", "12345678", "gamecodebd");
+if (!$conexao) {
+    die(json_encode(['status' => 'error', 'message' => 'Falha na conexão com o banco de dados.']));
+}
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $json = file_get_contents('php://input');
     $data = json_decode($json, true);
 
     if ($data) {
-        $filePath = 'data.json';
+        $selectOption = $data['selectOption'] ?? null;
+        $id = $data['id'] ?? uniqid();
+        $name = $data['name'] ?? null;
+        $surName = $data['surName'] ?? null;
+        $email = $data['email'] ?? null;
+        $number = $data['number'] ?? null;
+        $teacherKey = $data['teacherKey'] ?? null;
+        $institutionKey = $data['institutionKey'] ?? null;
+        $password = $data['password'] ?? null;
+        $passwordConfirm = $data['passwordConfirm'] ?? null;
 
-        if (file_exists($filePath)) {
-            $existingData = json_decode(file_get_contents($filePath), true);
-            if (!is_array($existingData)) {
-                $existingData = [];
-            }
-        } else {
-            $existingData = [];
+        if (!$selectOption || !$name || !$email || !$password || !$passwordConfirm) {
+            echo json_encode(['status' => 'error', 'message' => 'Dados incompletos.']);
+            exit;
         }
 
-        $newId = uniqid('id_', true);
+        if ($selectOption == "student") {
+            $table = "alunos";
+        } elseif ($selectOption == "teacher") {
+            $table = "professores";
+        } elseif ($selectOption == "institution") {
+            $table = "instituicoes";
+        } else {
+            echo json_encode(['status' => 'error', 'message' => 'Opção inválida.']);
+            exit;
+        }
 
-        $data['id'] = $newId;
-        $existingData[] = $data;
+        $stmt = $conexao->prepare("INSERT INTO $table (id, selectOption, name, surName, email, number, teacherKey, institutionKey, password, passwordConfirm) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+        $stmt->bind_param("ssssssssss", $id, $selectOption, $name, $surName, $email, $number, $teacherKey, $institutionKey, $password, $passwordConfirm);
 
-        if (file_put_contents($filePath, json_encode($existingData, JSON_PRETTY_PRINT))) {
-            $response = [
+        if ($stmt->execute()) {
+            echo json_encode([
                 'status' => 'success',
-                'message' => 'Dados recebidos e salvos com sucesso!',
+                'message' => ucfirst($selectOption) . ' cadastrado com sucesso!',
                 'data' => $data
-            ];
+            ]);
         } else {
-            $response = [
-                'status' => 'error',
-                'message' => 'Erro ao salvar os dados no arquivo.'
-            ];
+            echo json_encode(['status' => 'error', 'message' => 'Erro ao salvar no banco de dados.']);
         }
 
-        echo json_encode($response);
+        $stmt->close();
     } else {
-        $response = [
-            'status' => 'error',
-            'message' => 'Erro ao decodificar o JSON.'
-        ];
-        echo json_encode($response);
+        echo json_encode(['status' => 'error', 'message' => 'Erro ao decodificar o JSON.']);
     }
 } else {
-    $response = [
-        'status' => 'error',
-        'message' => 'Método não permitido.'
-    ];
-    echo json_encode($response);
+    echo json_encode(['status' => 'error', 'message' => 'Método não permitido.']);
 }
+
+mysqli_close($conexao);
 ?>
