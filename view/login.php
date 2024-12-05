@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="../css/register.css" />
+    <link rel="stylesheet" href="../css/login.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -33,69 +33,54 @@
               <a class="linkNav" href="../index.html#sectionII">Game Code</a>
             </li>
             <li class="navItem">
-              <a class="linkNav" href="register.html">Criar Conta</a>
+              <a class="linkNav" href="register.php">Criar Conta</a>
             </li>
             <li class="navItem">
-              <a class="linkLogin" href="login.html">Fazer Login</a>
+              <a class="linkLogin" href="login.php">Fazer Login</a>
             </li>
           </ul>
         </nav>
       </header>
       <main class="main">
         <section class="section">
-          <form
-            class="form"
-            action="../php/register.php"
-            method="post"
-            id="registrationForm"
-          >
-            <h2>Criar Conta</h2>
+          <form class="form" action="../php/login.php" method="get">
+            <h2>Login</h2>
             <div class="input-group">
-              <ul class="select-type">
-                <li>
-                  <button class="select-button" type="button" value="student">
-                    Aluno
-                  </button>
-                </li>
-                <li>
-                  <button class="select-button" type="button" value="teacher">
-                    Professor
-                  </button>
-                </li>
-                <li>
-                  <button
-                    class="select-button"
-                    type="button"
-                    value="institution"
-                  >
-                    Instituição
-                  </button>
-                </li>
-              </ul>
+              <input
+                class="input-form"
+                type="text"
+                id="email"
+                name="email"
+                placeholder="E-mail"
+                autocomplete="off"
+              />
             </div>
-            <div class="formContent" id="formContent">
-              <!-- Conteúdo será exibido aqui -->
+            <div class="input-group">
+              <input
+                class="input-form"
+                type="password"
+                id="password"
+                name="password"
+                placeholder="Senha"
+                autocomplete="off"
+              />
             </div>
-            <input
-              class="button-login"
-              type="submit"
-              id="criar"
-              name="criar"
-              value="Criar"
-            />
+            <input class="button-login" type="submit" value="Login" />
             <div class="redirect">
-              <a href="./login.html">Login</a>
+              <a href="./register.html">Criar Conta</a>
+              <span class="space-redirect">|</span>
+              <a href="">Redifinir senha</a>
             </div>
           </form>
           <div class="contentText">
-            <h1 class="title">
-              Até os melhores programadores já foram iniciantes!
-            </h1>
-            <p class="text">A chave é continuar aprendendo e nunca desistir.</p>
+            <h1 class="title">Abrace a jornada e deixe sua imaginação voar!</h1>
+            <p class="text">
+              Você está prestes a entrar em um mundo de infinitas possibilidades
+              criativas.
+            </p>
           </div>
         </section>
       </main>
     </div>
-    <script src="../js/register.js"></script>
   </body>
 </html>

@@ -55,8 +55,8 @@ document.addEventListener("DOMContentLoaded", function () {
             <input class="input-form" type="tel" id="number" name="number" placeholder="Número" autocomplete="off" required />
         </div>
         <div class="input-group">
-            <input class="input-form" type="number" id="state" name="state" placeholder="Estado" autocomplete="off" required />
-            <input class="input-form" type="number" id="city" name="city" placeholder="Cidade" autocomplete="off" required />
+            <input class="input-form" type="text" id="state" name="state" placeholder="Estado" autocomplete="off" required />
+            <input class="input-form" type="text" id="city" name="city" placeholder="Cidade" autocomplete="off" required />
         </div>
         <div class="input-group">
             <input class="input-form" type="password" id="password" name="password" placeholder="Senha" autocomplete="off" required />
@@ -149,7 +149,7 @@ document.addEventListener("DOMContentLoaded", function () {
       .then((data) => {
         if (data.status === "success") {
           alert("Cadastro realizado com sucesso!");
-          window.location.href = "http://localhost/GameCode/view/login.html";
+          window.location.href = "http://localhost/GameCode/view/login.php";
         } else {
           alert("Ocorreu um erro: " + data.message);
         }
